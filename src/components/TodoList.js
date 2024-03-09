@@ -124,7 +124,8 @@ const TodoList = ({isMobile}) => {
       {toDoData && toDoData.length > 0 ? (
         <div className="top-list">
           <div className="List-container">
-            {toDoData &&
+            { !isMobile ?
+              toDoData &&
               toDoData.map((ele, index) => {
                 return (
                   <div
@@ -154,7 +155,41 @@ const TodoList = ({isMobile}) => {
                     )}
                   </div>
                 );
-              })}
+              })
+              :
+              toDoData &&
+              toDoData.map((ele, index) => {
+                return (
+                  <div
+                    key={ele.id}
+                    className="list-item"
+                    onClick={(e) => (e.stopPropagation(), editHandle(e, ele))}
+                  >
+                    <div className="content">
+                      <div className="title">{ele.title}</div>
+                      <div className="discription">{ele.discription}</div>
+                    </div>
+                    {ele.isEdit ? (
+                      <>
+                        <span onClick={(e) => editHandle(e, ele)}>
+                          {ele.isEditClicked ? (
+                            <img src={"/edit.svg"} alt="img" />
+                          ) : (
+                            <EditIcon />
+                          )}
+                        </span>
+                       
+                      </>
+                    ) : (
+                      // <InfoIcon />
+                      <span onClick={() => deletItem(ele.id)}>
+                      <DeleteIcon />
+                    </span>
+                    )}
+                  </div>
+                );
+              })
+            }
           </div>
         </div>
       ) : (
