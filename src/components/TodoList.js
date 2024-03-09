@@ -5,12 +5,11 @@ import {
   EditIcon,
   DeleteIcon,
   Update,
-  isEditClicked,
-  isEditedTrue,
+  PlusIconMob
 } from "./ImgStore";
 import NoTask from "./NoTask.js";
 import DeleteModal from "./DeleteModal/index.js";
-const TodoList = () => {
+const TodoList = ({isMobile}) => {
   const [toDoData, setTodoData] = useState([]);
   const [title, setTitle] = useState("");
   const [discription, setDiscription] = useState("");
@@ -112,7 +111,7 @@ const TodoList = () => {
           {!isupdate ? (
             <span onClick={() => AddToDo(Date.now(), title, discription)}>
               {" "}
-              <PlusIcon />
+             {isMobile ? <PlusIconMob/> : <PlusIcon />}
             </span>
           ) : (
             <span onClick={() => updateList(isupdateId, title, discription)}>

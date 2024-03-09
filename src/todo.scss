@@ -25,6 +25,9 @@ $other-border-color: #ff8303;
     justify-content: center;
     align-items: center;
     gap: 10px;
+    @media screen and (max-width:1023px) {
+        margin-top: 20px;
+    }
     .input-filed {
       display: flex;
       flex-direction: column;
@@ -46,6 +49,9 @@ $other-border-color: #ff8303;
         padding: 0px 10px;
         outline: none;
         color: #f0e3caa3;
+        @media screen and (max-width:1023px) {
+            width: 100%;
+        }
       }
     }
   }
