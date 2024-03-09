@@ -57,6 +57,10 @@ $other-border-color: #ff8303;
   }
   .top-list{
     margin-top: 80px;
+    @media screen and (max-width:1023px) {
+        margin-top: 20px;
+    }
+
   .List-container {
     margin-top: 8px;
     border: 2px solid #a35709;
@@ -68,6 +72,14 @@ $other-border-color: #ff8303;
     margin: auto;
     gap: 10px;
     justify-content: left;
+    @media screen and (max-width:1023px) {
+        border: none;
+        width: auto;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
     .list-item {
       width: 32%;
       border: 2px solid #a35709;
@@ -75,6 +87,10 @@ $other-border-color: #ff8303;
       display: flex;
       justify-content: space-between;
       border-radius: 8px;
+      @media screen and (max-width:1023px) {
+        width: 80%;
+      }
+
       .content {
         .title,
         .discription {
