@@ -5,10 +5,10 @@ import {
   EditIcon,
   DeleteIcon,
   Update,
-  PlusIconMob
+  PlusIconMob,
 } from "./ImgStore";
 import NoTask from "./NoTask.js";
-const TodoList = ({isMobile}) => {
+const TodoList = ({ isMobile }) => {
   const [toDoData, setTodoData] = useState([]);
   const [title, setTitle] = useState("");
   const [discription, setDiscription] = useState("");
@@ -30,7 +30,7 @@ const TodoList = ({isMobile}) => {
     setDiscription("");
   };
   const editHandle = (e, ele) => {
-    if (!ele.isEdit ) {
+    if (!ele.isEdit) {
       e.stopPropagation();
       let copytoDoData = toDoData;
       let modifyProperty = (copytoDoData, targetId, newProperty) => {
@@ -60,8 +60,8 @@ const TodoList = ({isMobile}) => {
       setIsUpdateID(ele.id);
     }
   };
-  const deletItem = (e,id) => {
-    e.stopPropagation()
+  const deletItem = (e, id) => {
+    e.stopPropagation();
     setIdtoDelete(id);
     setShowModal(true);
   };
@@ -87,8 +87,8 @@ const TodoList = ({isMobile}) => {
     newData = [...newData];
     setTodoData(newData);
     setIsUpdate(false);
-    setTitle('')
-    setDiscription('')
+    setTitle("");
+    setDiscription("");
   };
   return (
     <div className="TodoList">
@@ -109,9 +109,12 @@ const TodoList = ({isMobile}) => {
         </div>
         <div>
           {!isupdate ? (
-            <span  className={title && discription ? "enabled" : "disabled"} onClick={() => AddToDo(Date.now(), title, discription)}>
+            <span
+              className={title && discription ? "enabled" : "disabled"}
+              onClick={() => AddToDo(Date.now(), title, discription)}
+            >
               {" "}
-             {isMobile ? <PlusIconMob/> : <PlusIcon />}
+              {isMobile ? <PlusIconMob /> : <PlusIcon />}
             </span>
           ) : (
             <span onClick={() => updateList(isupdateId, title, discription)}>
@@ -124,75 +127,79 @@ const TodoList = ({isMobile}) => {
       {toDoData && toDoData.length > 0 ? (
         <div className="top-list">
           <div className="List-container">
-            { !isMobile ?
-              toDoData &&
-              toDoData.map((ele, index) => {
-                return (
-                  <div
-                    key={ele.id}
-                    className="list-item"
-                    onClick={(e) => (e.stopPropagation(), editHandle(e, ele))}
-                  >
-                    <div className="content">
-                      <div className="title">{ele.title}</div>
-                      <div className="discription">{ele.discription}</div>
+            {!isMobile
+              ? toDoData &&
+                toDoData.map((ele, index) => {
+                  return (
+                    <div
+                      key={ele.id}
+                      className="list-item"
+                      onClick={(e) => (e.stopPropagation(), editHandle(e, ele))}
+                    >
+                      <div className="content">
+                        <div className="title">{ele.title}</div>
+                        <div className="discription">{ele.discription}</div>
+                      </div>
+                      {ele.isEdit ? (
+                        <>
+                          <span onClick={(e) => editHandle(e, ele)}>
+                            {ele.isEditClicked ? (
+                              <img src={"/edit.svg"} alt="img" />
+                            ) : (
+                              <EditIcon />
+                            )}
+                          </span>
+                          <span onClick={() => deletItem(ele.id)}>
+                            <DeleteIcon />
+                          </span>{" "}
+                        </>
+                      ) : (
+                        <InfoIcon />
+                      )}
                     </div>
-                    {ele.isEdit ? (
-                      <>
-                        <span onClick={(e) => editHandle(e, ele)}>
-                          {ele.isEditClicked ? (
-                            <img src={"/edit.svg"} alt="img" />
-                          ) : (
-                            <EditIcon />
+                  );
+                })
+              : toDoData &&
+                toDoData.map((ele, index) => {
+                  return (
+                    <>
+                      <div className="top-list-container">
+                        <div
+                          key={ele.id}
+                          className="list-item"
+                          onClick={(e) => (
+                            e.stopPropagation(), editHandle(e, ele)
                           )}
-                        </span>
-                        <span onClick={() => deletItem(ele.id)}>
-                          <DeleteIcon />
-                        </span>{" "}
-                      </>
-                    ) : (
-                      <InfoIcon />
-                    )}
-                  </div>
-                );
-              })
-              :
-              toDoData &&
-              toDoData.map((ele, index) => {
-                return (
-                  <>
-                  <div className="top-list-container">
-                  <div
-                    key={ele.id}
-                    className="list-item"
-                    onClick={(e) => (e.stopPropagation(), editHandle(e, ele))}
-                  >
-                    <div className="content">
-                      <div className="title">{ele.title}</div>
-                      <div className="discription">{ele.discription}</div>
-                    </div>
-                    {
-                      <span onClick={(e) => deletItem(e,ele.id)}>
-                      <DeleteIcon />
-                    </span>
-                    }
-                  </div>
-                  {ele.isEdit ? (
-                        <span className="bottom-options" onClick={(e) => editHandle(e, ele)}>
-                          {ele.isEditClicked ? (
-                            <img src={"/edit.svg"} alt="img" />
-                          ) : (
-                            <EditIcon />
-                          )}
-                                                  <InfoIcon />
-
-                        </span>
-                    ) : ''}
-                    </div>
-                  </>
-                );
-              })
-            }
+                        >
+                          <div className="content">
+                            <div className="title">{ele.title}</div>
+                            <div className="discription">{ele.discription}</div>
+                          </div>
+                          {
+                            <span onClick={(e) => deletItem(e, ele.id)}>
+                              <DeleteIcon />
+                            </span>
+                          }
+                        </div>
+                        {ele.isEdit ? (
+                          <span
+                            className="bottom-options"
+                            onClick={(e) => editHandle(e, ele)}
+                          >
+                            {ele.isEditClicked ? (
+                              <img src={"/edit.svg"} alt="img" />
+                            ) : (
+                              <EditIcon />
+                            )}
+                            <InfoIcon />
+                          </span>
+                        ) : (
+                          ""
+                        )}
+                      </div>
+                    </>
+                  );
+                })}
           </div>
         </div>
       ) : (
