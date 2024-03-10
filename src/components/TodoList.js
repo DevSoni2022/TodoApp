@@ -89,6 +89,8 @@ const TodoList = ({isMobile}) => {
     newData = [...newData];
     setTodoData(newData);
     setIsUpdate(false);
+    setTitle('')
+    setDiscription('')
   };
   return (
     <div className="TodoList">
