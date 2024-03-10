@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   PlusIcon,
   InfoIcon,
@@ -8,7 +8,6 @@ import {
   PlusIconMob
 } from "./ImgStore";
 import NoTask from "./NoTask.js";
-import DeleteModal from "./DeleteModal/index.js";
 const TodoList = ({isMobile}) => {
   const [toDoData, setTodoData] = useState([]);
   const [title, setTitle] = useState("");
