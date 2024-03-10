@@ -64,6 +64,8 @@ const TodoList = ({ isMobile }) => {
     e.stopPropagation();
     setIdtoDelete(id);
     setShowModal(true);
+    setDiscription('')
+    setTitle('')
   };
   const deleteModal = () => {
     let copytoDoData = toDoData;
