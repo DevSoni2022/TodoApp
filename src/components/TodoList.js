@@ -63,7 +63,8 @@ const TodoList = ({isMobile}) => {
       setIsUpdateID(ele.id);
     }
   };
-  const deletItem = (id) => {
+  const deletItem = (e,id) => {
+    e.stopPropagation()
     setIdtoDelete(id);
     setShowModal(true);
   };
@@ -174,7 +175,7 @@ const TodoList = ({isMobile}) => {
                       <div className="discription">{ele.discription}</div>
                     </div>
                     {
-                      <span onClick={() => deletItem(ele.id)}>
+                      <span onClick={(e) => deletItem(e,ele.id)}>
                       <DeleteIcon />
                     </span>
                     }
