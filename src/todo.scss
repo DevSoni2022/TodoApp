@@ -117,6 +117,7 @@ $other-border-color: #ff8303;
       justify-content: space-between;
       border-radius: 8px;
       height: 72px;
+      cursor: pointer;
       @media screen and (max-width:1023px) {
         width: 85%;
         height: auto;
