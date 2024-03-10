@@ -102,7 +102,7 @@ const TodoList = ({isMobile}) => {
             onChange={(e) => setTitle(e.target.value)}
           />
           <input
-            className="discriptiom"
+            className="discription"
             placeholder="Input..."
             value={discription}
             onChange={(e) => setDiscription(e.target.value)}
