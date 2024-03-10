@@ -27,6 +27,7 @@ $other-border-color: #ff8303;
     gap: 10px;
     @media screen and (max-width:1023px) {
         margin-top: 20px;
+        width: 100%;
     }
     .disabled{
         pointer-events: none;
@@ -42,6 +43,9 @@ $other-border-color: #ff8303;
       justify-content: center;
       align-items: center;
       gap: 5px;
+      @media screen and (max-width:1023px) {
+        width: 70%;
+      }
       .title,
       .discriptiom {
         width: 466px;
