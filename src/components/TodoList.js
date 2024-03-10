@@ -109,7 +109,7 @@ const TodoList = ({isMobile}) => {
         </div>
         <div>
           {!isupdate ? (
-            <span onClick={() => AddToDo(Date.now(), title, discription)}>
+            <span  className={title && discription ? "enabled" : "disabled"} onClick={() => AddToDo(Date.now(), title, discription)}>
               {" "}
              {isMobile ? <PlusIconMob/> : <PlusIcon />}
             </span>
@@ -160,6 +160,7 @@ const TodoList = ({isMobile}) => {
               toDoData &&
               toDoData.map((ele, index) => {
                 return (
+                  <div>
                   <div
                     key={ele.id}
                     className="list-item"
@@ -169,7 +170,13 @@ const TodoList = ({isMobile}) => {
                       <div className="title">{ele.title}</div>
                       <div className="discription">{ele.discription}</div>
                     </div>
-                    {ele.isEdit ? (
+                    {
+                      <span onClick={() => deletItem(ele.id)}>
+                      <DeleteIcon />
+                    </span>
+                    }
+                  </div>
+                  {ele.isEdit ? (
                       <>
                         <span onClick={(e) => editHandle(e, ele)}>
                           {ele.isEditClicked ? (
@@ -177,15 +184,11 @@ const TodoList = ({isMobile}) => {
                           ) : (
                             <EditIcon />
                           )}
+                                                  <InfoIcon />
+
                         </span>
-                       
                       </>
-                    ) : (
-                      // <InfoIcon />
-                      <span onClick={() => deletItem(ele.id)}>
-                      <DeleteIcon />
-                    </span>
-                    )}
+                    ) : ''}
                   </div>
                 );
               })

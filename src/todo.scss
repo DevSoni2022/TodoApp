@@ -28,6 +28,14 @@ $other-border-color: #ff8303;
     @media screen and (max-width:1023px) {
         margin-top: 20px;
     }
+    .disabled{
+        pointer-events: none;
+        opacity: .8;
+    }
+    .enabled{
+        cursor: pointer;
+        opacity: 1;
+    }
     .input-filed {
       display: flex;
       flex-direction: column;
@@ -72,12 +80,14 @@ $other-border-color: #ff8303;
     margin: auto;
     gap: 10px;
     justify-content: left;
+    min-height: 300px;
     @media screen and (max-width:1023px) {
         border: none;
         width: auto;
         padding: 10px;
         display: flex;
         justify-content: center;
+        min-height: auto;
     }
 
     .list-item {
@@ -87,8 +97,10 @@ $other-border-color: #ff8303;
       display: flex;
       justify-content: space-between;
       border-radius: 8px;
+      height: 72px;
       @media screen and (max-width:1023px) {
         width: 80%;
+        height: auto;
       }
 
       .content {
