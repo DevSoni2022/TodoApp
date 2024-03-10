@@ -149,7 +149,7 @@ const TodoList = ({ isMobile }) => {
                               <EditIcon />
                             )}
                           </span>
-                          <span onClick={() => deletItem(ele.id)}>
+                          <span onClick={(e) => deletItem(e,ele.id)}>
                             <DeleteIcon />
                           </span>{" "}
                         </>
