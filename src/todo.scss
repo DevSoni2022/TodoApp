@@ -92,6 +92,21 @@ $other-border-color: #ff8303;
         display: flex;
         justify-content: center;
         min-height: auto;
+        .top-list-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            .bottom-options{
+                padding: 5px 0px;
+                display: flex;
+                gap: 12px;
+                position: relative;
+                left: 33%;
+            }
+        }
     }
 
     .list-item {
@@ -103,8 +118,13 @@ $other-border-color: #ff8303;
       border-radius: 8px;
       height: 72px;
       @media screen and (max-width:1023px) {
-        width: 80%;
+        width: 85%;
         height: auto;
+        span{
+            display: flex;
+            justify-content: end;
+          
+        }
       }
 
       .content {

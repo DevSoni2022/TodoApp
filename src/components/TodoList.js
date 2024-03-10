@@ -160,7 +160,8 @@ const TodoList = ({isMobile}) => {
               toDoData &&
               toDoData.map((ele, index) => {
                 return (
-                  <div>
+                  <>
+                  <div className="top-list-container">
                   <div
                     key={ele.id}
                     className="list-item"
@@ -177,8 +178,7 @@ const TodoList = ({isMobile}) => {
                     }
                   </div>
                   {ele.isEdit ? (
-                      <>
-                        <span onClick={(e) => editHandle(e, ele)}>
+                        <span className="bottom-options" onClick={(e) => editHandle(e, ele)}>
                           {ele.isEditClicked ? (
                             <img src={"/edit.svg"} alt="img" />
                           ) : (
@@ -187,9 +187,9 @@ const TodoList = ({isMobile}) => {
                                                   <InfoIcon />
 
                         </span>
-                      </>
                     ) : ''}
-                  </div>
+                    </div>
+                  </>
                 );
               })
             }

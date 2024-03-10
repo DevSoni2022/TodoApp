@@ -27,7 +27,7 @@ export const InfoIcon=()=>{
 
 export const EditIcon=()=>{
     return(
-        <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="36" height="36" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="1.75" y="1" width="30" height="30" rx="5" fill="#1B1A17" stroke="#A35709" stroke-width="2"/>
             <g clip-path="url(#clip0_1_531)">
             <path d="M11.4167 19.1111V21.3333H13.639L20.193 14.7793L17.9708 12.557L11.4167 19.1111ZM21.9116 13.0607C22.1427 12.8296 22.1427 12.4563 21.9116 12.2252L20.5249 10.8385C20.2938 10.6074 19.9205 10.6074 19.6893 10.8385L18.6049 11.923L20.8271 14.1452L21.9116 13.0607Z" fill="#D9D9D9"/>
