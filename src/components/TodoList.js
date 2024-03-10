@@ -31,7 +31,7 @@ const TodoList = ({isMobile}) => {
     setDiscription("");
   };
   const editHandle = (e, ele) => {
-    if (!ele.isEdit) {
+    if (!ele.isEdit ) {
       e.stopPropagation();
       let copytoDoData = toDoData;
       let modifyProperty = (copytoDoData, targetId, newProperty) => {
@@ -43,7 +43,6 @@ const TodoList = ({isMobile}) => {
 
       modifyProperty(copytoDoData, ele.id, !ele.isEdit);
       copytoDoData = [...copytoDoData];
-      console.log(copytoDoData, "#$#@!$#@");
       setTodoData(copytoDoData);
     } else if (ele.isEdit && !ele.isEditClicked) {
       let copytoDoData = toDoData;
@@ -55,7 +54,6 @@ const TodoList = ({isMobile}) => {
       };
       modifyProperty(copytoDoData, ele.id, !ele.isEditClicked);
       copytoDoData = [...copytoDoData];
-      console.log(copytoDoData, "#$#@!$#@");
       setTitle(ele.title);
       setTodoData(copytoDoData);
       setDiscription(ele.discription);
