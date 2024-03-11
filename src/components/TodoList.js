@@ -72,6 +72,7 @@ const TodoList = ({ isMobile }) => {
     let newTodo = copytoDoData.filter((ele) => ele.id !== idToDelete);
     setTodoData(newTodo);
     setShowModal(false);
+    setIsUpdate(false)
   };
   const noDelete = () => {
     setShowModal(false);
